@@ -1,18 +1,19 @@
 package entities;
 
-import employee.state;
+
 
 public class Product {
 
 	private String Name;
 	private Double price;
-	private state estadoPedido;
+	private int quantidade;
+
 
 	// construtores
-	public Product(String name, Double price, state estadorPedido) {
+	public Product(String name, Double price,int quatidade) {
 		this.Name = name;
-		this.price = price;
-		this.estadoPedido = estadoPedido;
+		this.price = price; 
+		this.quantidade=quatidade;
 	}
 
 	public Product() {
@@ -36,8 +37,18 @@ public class Product {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
+	
+
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
 
 	// Tostring
+	
 	@Override
 	public String toString() {
 		return "Product [Name=" + Name + ", price=" + price + "]";
@@ -48,7 +59,6 @@ public class Product {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((Name == null) ? 0 : Name.hashCode());
-		result = prime * result + ((estadoPedido == null) ? 0 : estadoPedido.hashCode());
 		result = prime * result + ((price == null) ? 0 : price.hashCode());
 		return result;
 	}
@@ -67,8 +77,6 @@ public class Product {
 				return false;
 		} else if (!Name.equals(other.Name))
 			return false;
-		if (estadoPedido != other.estadoPedido)
-			return false;
 		if (price == null) {
 			if (other.price != null)
 				return false;
@@ -76,7 +84,9 @@ public class Product {
 			return false;
 		return true;
 	}
-
+	
+	
+	
 	
 	
 }
